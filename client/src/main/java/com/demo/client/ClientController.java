@@ -32,9 +32,7 @@ public class ClientController {
                     .retrieve()
                     .bodyToMono(String.class);  // Get the response body as a String
 
-//            return response.block();  // Block to wait for the response synchronously\
-            System.out.println("response:"+response.block());
-            return "dong";
+            return response.block();  // Block to wait for the response synchronously
         } catch (WebClientResponseException e) {
             // Handle errors in the response
             return "Error: " + e.getStatusCode();
